@@ -9,6 +9,17 @@ private: //attributes access specifier is private.
     double total_price; //will track the total price.
 
 public: //methods have public access specifier per usual bc we need to call them from main function.
+    CashRegister () //constructor: automatically does what clear () does when object is created.
+    //clear () would do the same thing but when called only. we can delete constructor in program for simplicity.
+    {
+        item_count = 0; //sets item count back to zero.
+        total_price = 0; //sets total price back to zero.
+    }
+/*
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+*/
     void clear () //no return value.
     //this is a mutator (set) function bc it changes the object's attributes.
     {
@@ -53,7 +64,6 @@ int main ()
 {
     //BELOW CREATES A GROCERY STORE OBJECT WITH 3 ITEMS.
     CashRegister grocery_cash_register; //we create an object grocery_cash_register w/ class CashRegister.
-    grocery_cash_register.clear (); //sets all attributes to zero - CANT WE USE A CONSTRUCTOR FOR THIS????
     grocery_cash_register.add_item (1.95); //Skittles: 0 + 1.95
     grocery_cash_register.add_item (2.00); //Bananas: 1.95 + 2.00
     grocery_cash_register.add_item (5.00); //Milk: 1.95 + 2.00 + 5.00
