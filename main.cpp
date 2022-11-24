@@ -31,12 +31,17 @@ public: //methods have public access specifier per usual bc we need to call them
 ///////////////////////////////
 ///////////////////////////////
 */
-    void add_item (double price) //no return value.
-    //note: we have a parameter w/ type double running through this function.
+    void add_item (double total_price) //we would have to use explicit parameters here bc the local double variable has the same name as one of the member variables.
+    //so far we've been using implicit parameters within member functions. this means the member variables have so far been manipulated when a function has been called.
+    //however, in explicit parameter usage, we tell the computer that a certain variable in a function corresponds to a member variable.
     //mutator (set) function bc it changes object's attribute values.
     {
         item_count = item_count + 1; //adds 1 to item count.
-        total_price = total_price + price; //adds the price of item to total price.
+        this->total_price = this->total_price + total_price; //adds the price of item to total price.
+        //without this->, we would only be accessing local total_price throughout member function.
+        //hence the global member variable total_price will stay zero (never really changed).
+        //with this->, the line reads: member variable total_price = member variable total_price + local variable total_price.
+        //it's helpful to use explicit parameters but not necessary.
     }
 /*
 ///////////////////////////////
